@@ -37,7 +37,7 @@ run_analysis <- function(){
   names(combinedData)<-gsub("BodyBody", "Body", names(combinedData))
   
   #5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
-  DT <- data.table(combinedData)
+  DT5 <- data.table(combinedData)
   tidyData <- DT5[,lapply(.SD,mean),by="Activity,Subject"]
   write.table(tidyData, file = "tidyData.txt", row.names = FALSE)
 }
